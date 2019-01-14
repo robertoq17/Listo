@@ -50,5 +50,10 @@ namespace Listo.Views
             }
 
         }
+
+        private void ButtonRequests_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
