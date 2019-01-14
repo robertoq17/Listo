@@ -157,4 +157,7 @@
       <Name>Listo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contact_icon.png" />
+  </ItemGroup>
 </Project>

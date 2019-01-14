@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Listo.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace Listo
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new CategoryPage());
         }
 
         protected override void OnStart()
