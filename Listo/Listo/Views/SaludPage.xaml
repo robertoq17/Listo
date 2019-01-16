@@ -1,12 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Listo.Views.SaludPage">
+             x:Class="Listo.Views.SaludPage"
+             Title="SALUD">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ListView  x:Name="GroupedView"
+    GroupDisplayBinding="{Binding Title}"
+    RowHeight="75"
+    GroupShortNameBinding="{Binding ShortName}"
+    IsGroupingEnabled="true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Name}"
+            Detail="{Binding Description}"
+            ImageSource="{Binding Icon}"
+            Height="75"
+            TextColor="Black"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
+                            <Label Text="{Binding TitleWithItemCount}" 
+                     TextColor="Black"
+                     FontSize="15"
+                     VerticalOptions="Center"/>
+                            <Button Image="{Binding StateIcon}"
+                      BackgroundColor="Transparent"
+                      BorderColor="Transparent"
+                      BorderWidth="0"
+                      Clicked="HeaderTapped" 
+                      CommandParameter="{Binding .}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+
     </ContentPage.Content>
 </ContentPage>

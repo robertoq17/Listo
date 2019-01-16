@@ -1,20 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Listo.Models;
+using System;
+using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Listo.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SaludPage : ContentPage
 	{
-		public SaludPage ()
+
+        private ObservableCollection<CGroup> _allGroups;
+        private ObservableCollection<CGroup> _expandedGroups;
+
+
+        public SaludPage ()
 		{
 			InitializeComponent ();
-		}
-	}
+            _allGroups = CGroup.All;
+            UpdateListContent();
+        }
+
+        private void HeaderTapped(object sender, EventArgs args)
+        {
+            int selectedIndex = _expandedGroups.IndexOf(
+                ((CGroup)((Button)sender).CommandParameter));
+            _allGroups[selectedIndex].Expanded = !_allGroups[selectedIndex].Expanded;
+            UpdateListContent();
+        }
+
+        private void UpdateListContent()
+        {
+            _expandedGroups = new ObservableCollection<CGroup>();
+            foreach (CGroup group in _allGroups)
+            {
+                //Create new Groups so we do not alter original list
+                CGroup newGroup = new CGroup(group.Title, group.ShortName, group.Expanded);
+                //Add the count of contact items for Lits Header Titles to use
+                newGroup.CCount = group.Count;
+                if (group.Expanded)
+                {
+                    foreach (Contact contanct in group)
+                    {
+                        newGroup.Add(contanct);
+                    }
+                }
+                _expandedGroups.Add(newGroup);
+            }
+            GroupedView.ItemsSource = _expandedGroups;
+        }
+    }
 }

@@ -37,14 +37,17 @@ namespace Listo.Views
                 if (item.Name.ToLower() == "hogar")
                 {
                     DisplayAlert("HOGAR", "bienvenido a hogar", "ok");
+                    await Navigation.PushAsync(new HogarPage());
                 }
                 else if (item.Name.ToLower() == "salud")
                 {
                     DisplayAlert("SALUD", "bienvenido a salud", "ok");
+                    await Navigation.PushAsync(new SaludPage());
                 }
                 else if (item.Name.ToLower() == "profesionales")
                 {
                     DisplayAlert("PROFESIONALES", "bienvenido a profesionales", "ok");
+                    await Navigation.PushAsync(new ProfesionalPage());
                 }
 
             }
