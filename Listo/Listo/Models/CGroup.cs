@@ -50,20 +50,20 @@ namespace Listo.Models
         {
             ObservableCollection<CGroup> Groups = new ObservableCollection<CGroup>{
                 new CGroup("Cardiologos","C"){
-                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png" },
-                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png" },
+                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="76021703" },
+                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png", Phonenumber="76021703" },
                 },
                 new CGroup("Ginecologos","G"){
-                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png"},
-                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png"},
+                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png", Phonenumber="76021703"},
                 },
                 new CGroup("Pediatras","P"){
-                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png"},
-                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png"},
+                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
                 },
                 new CGroup("Urologos","U"){
-                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png"},
-                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png"},
+                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
 
                 } };
             All = Groups;

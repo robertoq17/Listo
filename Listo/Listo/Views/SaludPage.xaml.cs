@@ -1,4 +1,5 @@
 ﻿using Listo.Models;
+using Plugin.Messaging;
 using System;
 using System.Collections.ObjectModel;
 
@@ -13,6 +14,7 @@ namespace Listo.Views
 
         private ObservableCollection<CGroup> _allGroups;
         private ObservableCollection<CGroup> _expandedGroups;
+        
 
 
         public SaludPage ()
@@ -41,14 +43,31 @@ namespace Listo.Views
                 newGroup.CCount = group.Count;
                 if (group.Expanded)
                 {
-                    foreach (Contact contanct in group)
+                    foreach (Contact contact in group)
                     {
-                        newGroup.Add(contanct);
+                        newGroup.Add(contact);
                     }
                 }
                 _expandedGroups.Add(newGroup);
             }
             GroupedView.ItemsSource = _expandedGroups;
         }
+
+        private void BtnCall_Clicked(object sender, EventArgs e)
+        {
+            
+            var item = GroupedView.SelectedItem as Contact;
+            var call = CrossMessaging.Current.PhoneDialer;
+            if (call.CanMakePhoneCall)
+                call.MakePhoneCall("76021703");
+        }
+
+        //private void BtnCall_Clicked(object sender, EventArgs e)
+        //{
+        //    private string _phonenumber;
+        //    var call = CrossMessaging.Current.PhoneDialer;
+        //    if (call.CanMakePhoneCall)
+        //        call.MakePhoneCall(_phonenumber);
+        //}
     }
 }

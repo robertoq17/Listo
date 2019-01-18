@@ -4,40 +4,56 @@
              x:Class="Listo.Views.SaludPage"
              Title="SALUD">
     <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <ListView  x:Name="GroupedView"
+            <ListView  x:Name="GroupedView"
     GroupDisplayBinding="{Binding Title}"
     RowHeight="75"
     GroupShortNameBinding="{Binding ShortName}"
     IsGroupingEnabled="true">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ImageCell Text="{Binding Name}"
-            Detail="{Binding Description}"
-            ImageSource="{Binding Icon}"
-            Height="75"
-            TextColor="Black"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.GroupHeaderTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
-                            <Label Text="{Binding TitleWithItemCount}" 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="5,5,5,5" BackgroundColor="White">
+                                <Label Text="{Binding Name}" HorizontalTextAlignment="Center"></Label>
+                                <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
+                                    <Image Source="{Binding Icon}" VerticalOptions="CenterAndExpand"></Image>
+                                    <Label Text="{Binding Description}" HorizontalTextAlignment="Start" FontSize="Small" TextColor="Gray"></Label>
+                                    <Label x:Name="txtphonenumber" Text="{Binding Phonenumber}" HorizontalTextAlignment="Center" FontSize="Small" TextColor="Gray"></Label>
+                                    <Button x:Name="btnCall" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="call.png" Clicked="BtnCall_Clicked"></Button>
+                                    <!--some button here-->
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
+                                <Label Text="{Binding TitleWithItemCount}" 
                      TextColor="Black"
                      FontSize="15"
                      VerticalOptions="Center"/>
-                            <Button Image="{Binding StateIcon}"
+                                <Button Image="{Binding StateIcon}"
                       BackgroundColor="Transparent"
                       BorderColor="Transparent"
                       BorderWidth="0"
                       Clicked="HeaderTapped" 
                       CommandParameter="{Binding .}"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.GroupHeaderTemplate>
-        </ListView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+            </ListView>
 
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
+
+
+<!--<ImageCell Text="{Binding Name}"
+            Detail="{Binding Description}"
+            ImageSource="{Binding Icon}"
+            Height="75"
+            TextColor="Black"/>-->
