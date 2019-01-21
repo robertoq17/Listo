@@ -149,7 +149,7 @@ namespace Listo.ViewModels
             //    "Accept");
             //    return;
             //}
-
+            number = "591" + number;
             string msg = "Estoy%20interesado%20en%20su%20servicio";
             string uri = string.Format("https://wa.me/{0}?text={1}", number, msg);           
 
