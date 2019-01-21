@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Listo.Models
 {
-    class Contact
+    public class Contact
     {
         public string Name { get; set; }
 

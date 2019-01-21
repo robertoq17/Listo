@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Listo.ViewModels
 {
-    public class ProfesionalViewModel
+    public class CategoryViewModel
     {
     }
 }

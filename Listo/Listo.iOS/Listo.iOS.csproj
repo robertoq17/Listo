@@ -172,4 +172,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\call.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\whatsapp.png" />
+  </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Listo.Models
 {
-    class CGroup : ObservableCollection<Contact>, INotifyPropertyChanged
+    public class CGroup : ObservableCollection<Contact>, INotifyPropertyChanged
     {
         public bool expanded;
 

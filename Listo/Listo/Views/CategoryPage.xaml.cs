@@ -37,11 +37,13 @@ namespace Listo.Views
                 if (item.Name.ToLower() == "hogar")
                 {
                     DisplayAlert("HOGAR", "bienvenido a hogar", "ok");
+                    
                     await Navigation.PushAsync(new HogarPage());
                 }
                 else if (item.Name.ToLower() == "salud")
                 {
                     DisplayAlert("SALUD", "bienvenido a salud", "ok");
+                    ViewModels.MainViewModel.GetInstance().Salud = new ViewModels.SaludViewModel();
                     await Navigation.PushAsync(new SaludPage());
                 }
                 else if (item.Name.ToLower() == "profesionales")
