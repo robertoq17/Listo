@@ -46,8 +46,13 @@ namespace Listo.Models
 
         public static ObservableCollection<CGroup> All { private set; get; }
 
+        public static ObservableCollection<CGroup> AllH { private set; get; }
+
+        public static ObservableCollection<CGroup> AllP { private set; get; }
+
         static CGroup()
         {
+            // Groups Salud
             ObservableCollection<CGroup> Groups = new ObservableCollection<CGroup>{
                 new CGroup("Cardiologos","C"){
                     new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="76021703" },
@@ -67,6 +72,47 @@ namespace Listo.Models
 
                 } };
             All = Groups;
+
+            // Groups Profesional
+            ObservableCollection<CGroup> Groupp = new ObservableCollection<CGroup>{
+                new CGroup("Arquitectos","A"){
+                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="76021703" },
+                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png", Phonenumber="76021703" },
+                },
+                new CGroup("Ing. Civiles","C"){
+                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                },
+                new CGroup("Industriales","I"){
+                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                },
+                new CGroup("Jueces","J"){
+                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+
+                } };
+            AllP = Groupp;
+            // Groups Hogar
+            ObservableCollection<CGroup> Grouph = new ObservableCollection<CGroup>{
+                new CGroup("Albañiles","A"){
+                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="76021703" },
+                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png", Phonenumber="76021703" },
+                },
+                new CGroup("Electricista","E"){
+                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                },
+                new CGroup("Fontaneros","F"){
+                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                },
+                new CGroup("Jardineros","J"){
+                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+
+                } };
+            AllH = Grouph;
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using Listo.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,41 +14,45 @@ namespace Listo.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HogarPage : ContentPage
 	{
-		public HogarPage ()
+        private ObservableCollection<CGroup> _allGroups;
+        private ObservableCollection<CGroup> _expandedGroups;
+
+        public HogarPage ()
 		{
 			InitializeComponent ();
-		}
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            ListHogar listElements = new ListHogar();
-            ListCategory.ItemsSource = listElements.Elements;
-            ListCategory.ItemSelected += ListCategory_ItemSelected;
+            _allGroups = CGroup.AllH;
+            UpdateListContent();
         }
 
-        private void ListCategory_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void HeaderTapped(object sender, EventArgs args)
         {
-            if(e.SelectedItem != null)
+            int selectedIndex = _expandedGroups.IndexOf(
+                ((CGroup)((Button)sender).CommandParameter));
+            _allGroups[selectedIndex].Expanded = !_allGroups[selectedIndex].Expanded;
+            UpdateListContent();
+        }
+
+        private void UpdateListContent()
+        {
+            _expandedGroups = new ObservableCollection<CGroup>();
+            foreach (CGroup group in _allGroups)
             {
-                var item = e.SelectedItem as Category;
-                if (item.Name.ToLower()== "plomeros")
+                //Create new Groups so we do not alter original list
+                CGroup newGroup = new CGroup(group.Title, group.ShortName, group.Expanded);
+                //Add the count of contact items for Lits Header Titles to use
+                newGroup.CCount = group.Count;
+                if (group.Expanded)
                 {
-
+                    foreach (Contact contact in group)
+                    {
+                        newGroup.Add(contact);
+                    }
                 }
-                else if (item.Name.ToLower() == "electricistas")
-                {
-
-                }
-                else if (item.Name.ToLower() == "jardineros")
-                {
-
-                }
-                else if (item.Name.ToLower() == "albañiles")
-                {
-
-                }
+                _expandedGroups.Add(newGroup);
             }
+            GroupedView.ItemsSource = _expandedGroups;
         }
+
+
     }
 }

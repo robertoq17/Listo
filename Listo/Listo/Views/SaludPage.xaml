@@ -24,8 +24,8 @@
                                     <Label Text="{Binding Description}" HorizontalTextAlignment="Start" FontSize="Small" TextColor="Gray"></Label>
                                     <Label x:Name="txtphonenumber" Text="{Binding Phonenumber}" HorizontalTextAlignment="Center" FontSize="Small" TextColor="Gray"></Label>
                                     <!--some button here-->
-                                    <Button x:Name="btnCall"  Command="{Binding  MakeACallCommand, Source={StaticResource Bnd}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="call.png"></Button>
-                                    <Button x:Name="btnWhatsapp"  Command="{Binding  SendAWhatsappCommand,Source={StaticResource Bnd}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="whatsapp.png"></Button>
+                                    <Button x:Name="btnCall"  Command="{Binding  MakeACallCommand, Source={StaticResource Sld}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="call.png"></Button>
+                                    <Button x:Name="btnWhatsapp"  Command="{Binding  SendAWhatsappCommand,Source={StaticResource Sld}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="whatsapp.png"></Button>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

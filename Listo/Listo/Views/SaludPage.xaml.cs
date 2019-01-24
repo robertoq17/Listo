@@ -50,39 +50,6 @@ namespace Listo.Views
             GroupedView.ItemsSource = _expandedGroups;
         }
 
-        //private void BtnCall_Clicked(object sender, EventArgs e)
-        //{
-            
-        //    var item = GroupedView.SelectedItem as Contact;
-        //    var call = CrossMessaging.Current.PhoneDialer;
-        //    if (call.CanMakePhoneCall)
-        //        call.MakePhoneCall("76021703");
-        //}
 
-        //private async void BtnWhatsapp_Clicked(object sender, EventArgs e)
-        //{
-        ////https://wa.me/15551234567?text=I'm%20interested%20in%20your%20car%20for%20sale
-        //    string msg= "Estoy%20interesado%20en%20su%20servicio";
-        //    string number="59176021703";
-        //    string uri = string.Format("https://wa.me/{0}?text={1}", number, msg);
-
-        //    try
-        //    {
-        //        Device.OpenUri(new Uri(uri));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await DisplayAlert("Not Installed", "Whatsapp Not Installed", "ok");
-        //        await DisplayAlert("", ex.Message, "ok");
-        //    }
-        //}
-
-        //private void BtnCall_Clicked(object sender, EventArgs e)
-        //{
-        //    private string _phonenumber;
-        //    var call = CrossMessaging.Current.PhoneDialer;
-        //    if (call.CanMakePhoneCall)
-        //        call.MakePhoneCall(_phonenumber);
-        //}
     }
 }

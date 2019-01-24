@@ -1,47 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Listo.Views.ProfesionalPage">
+             x:Class="Listo.Views.ProfesionalPage"
+             Title="PROFESIONALES">
     <ContentPage.Content>
-        <StackLayout
-            Orientation="Vertical"
-            BackgroundColor="White">
+        <ScrollView Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                        BindingContext="{Binding Profesional}">
 
-            <Label
-                Text="Listo"
-                TextColor="Black"
-                HorizontalOptions="StartAndExpand"></Label>
-
-
-            <StackLayout
-                Orientation="Vertical">
-                <Label
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand"
-                    Text="PROFESIONAL"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    TextColor="Black"></Label>
-
-                <ListView
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand"
-                    SeparatorColor="Black"
-                    x:Name="ListCategory">
-
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell 
-                                Text="{Binding Name}" 
-                                Detail="{Binding Detail}" 
-                                TextColor="Black"
-                                DetailColor="Black">
-                            </TextCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-
-        </StackLayout>
+            <ListView  x:Name="GroupedView"
+    GroupDisplayBinding="{Binding Title}"
+    RowHeight="75"
+    GroupShortNameBinding="{Binding ShortName}"
+    IsGroupingEnabled="true"
+                       HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="5,5,5,5" BackgroundColor="White">
+                                <Label Text="{Binding Name}" HorizontalTextAlignment="Center"></Label>
+                                <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
+                                    <Image Source="{Binding Icon}" VerticalOptions="CenterAndExpand"></Image>
+                                    <Label Text="{Binding Description}" HorizontalTextAlignment="Start" FontSize="Small" TextColor="Gray"></Label>
+                                    <Label x:Name="txtphonenumber" Text="{Binding Phonenumber}" HorizontalTextAlignment="Center" FontSize="Small" TextColor="Gray"></Label>
+                                    <!--some button here-->
+                                    <Button x:Name="btnCall"  Command="{Binding  MakeACallCommand, Source={StaticResource Prf}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="call.png"></Button>
+                                    <Button x:Name="btnWhatsapp"  Command="{Binding  SendAWhatsappCommand,Source={StaticResource Prf}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="whatsapp.png"></Button>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
+                                <Label Text="{Binding TitleWithItemCount}" 
+                     TextColor="Black"
+                     FontSize="15"
+                     VerticalOptions="Center"/>
+                                <Button Image="{Binding StateIcon}"
+                      BackgroundColor="Transparent"
+                      BorderColor="Transparent"
+                      BorderWidth="0"
+                      Clicked="HeaderTapped" 
+                      CommandParameter="{Binding .}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+            </ListView>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
