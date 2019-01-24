@@ -76,20 +76,20 @@ namespace Listo.Models
             // Groups Profesional
             ObservableCollection<CGroup> Groupp = new ObservableCollection<CGroup>{
                 new CGroup("Arquitectos","A"){
-                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="76021703" },
-                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png", Phonenumber="76021703" },
+                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="1" },
+                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png", Phonenumber="2" },
                 },
                 new CGroup("Ing. Civiles","C"){
-                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png", Phonenumber="3"},
+                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png", Phonenumber="4"},
                 },
                 new CGroup("Industriales","I"){
-                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png", Phonenumber="5"},
+                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png", Phonenumber="6"},
                 },
                 new CGroup("Jueces","J"){
-                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="7"},
+                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="8"},
 
                 } };
             AllP = Groupp;

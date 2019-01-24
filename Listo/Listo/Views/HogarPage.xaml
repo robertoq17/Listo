@@ -7,12 +7,13 @@
         <ScrollView Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                         BindingContext="{Binding Hogar}">
 
-            <ListView  x:Name="GroupedView"
-    GroupDisplayBinding="{Binding Title}"
-    RowHeight="75"
-    GroupShortNameBinding="{Binding ShortName}"
-    IsGroupingEnabled="true"
-                       HasUnevenRows="True">
+            <ListView  
+                x:Name="GroupedView"
+                GroupDisplayBinding="{Binding Title}"
+                RowHeight="75"
+                GroupShortNameBinding="{Binding ShortName}"
+                IsGroupingEnabled="true"
+                HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -35,11 +36,11 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
                                 <Label Text="{Binding TitleWithItemCount}" 
-                     TextColor="Black"
-                     FontSize="15"
-                     VerticalOptions="Center"/>
+                                    TextColor="Black"
+                                    FontSize="15"
+                                    VerticalOptions="Center"/>
                                 <Button Image="{Binding StateIcon}"
-                      BackgroundColor="Transparent"
+                                    BackgroundColor="Transparent"
                       BorderColor="Transparent"
                       BorderWidth="0"
                       Clicked="HeaderTapped" 
