@@ -7,7 +7,7 @@ namespace Listo.ViewModels
     public class MainViewModel
     {
         #region ViewModel
-        public CategoryViewModel Category { get; set; }
+        public CategoryViewModel Categories { get; set; }
 
         public HogarViewModel Hogar { get; set; }
 
@@ -20,7 +20,7 @@ namespace Listo.ViewModels
         public MainViewModel()
         {
             instance = this;
-            //this.Category = new CategoryViewModel();
+            this.Categories = new CategoryViewModel();
             this.Salud = new SaludViewModel();
             this.Hogar = new HogarViewModel();
             this.Profesional = new ProfesionalViewModel();

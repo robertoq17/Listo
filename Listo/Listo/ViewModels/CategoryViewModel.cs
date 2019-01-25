@@ -1,15 +1,17 @@
-﻿using Listo.Services;
+﻿using Listo.Models;
+using Listo.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Listo.ViewModels
 {
-    public class CategoryViewModel
+    public class CategoryViewModel:BaseViewModel
     {
         #region Attributes
         private ApiService apiService;
         //private ObservableCollection<Lista> myList;
+        //private List<Lista> listCategories;
         #endregion
 
 
@@ -57,10 +59,21 @@ namespace Listo.ViewModels
         //        return;
         //    }
 
-        //    var list = (List<Lista>)response.Result;
-        //    this.MyList = new ObservableCollection<Lista>(list);
-
+        //    this.listCategories = (List<Lista>)response.Result;
+        //    this.MyList = new ObservableCollection<Lista>(this.listCategories);
         //}
+
+        //private IEnumerable<CategoryItemViewModel> ToCategoryItemViewModel()
+        //{
+        //    return MainViewModel.GetInstance().MyList.Select(l => new CategoryItemViewModel
+        //    {
+        //        Alpha2Code = l.Alpha2Code,
+        //        Alpha3Code = l.Alpha3Code,
+        //        AltSpellings = l.AltSpellings,
+        //        Area = l.Area,
+        //    });
+        //}
+
         #endregion
 
         #region Commands
