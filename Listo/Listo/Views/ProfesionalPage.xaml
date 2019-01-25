@@ -4,7 +4,7 @@
              x:Class="Listo.Views.ProfesionalPage"
              Title="PROFESIONALES">
     <ContentPage.Content>
-        <ScrollView Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        <StackLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                         BindingContext="{Binding Profesional}">
 
             <ListView  x:Name="GroupedView"
@@ -49,6 +49,6 @@
                     </DataTemplate>
                 </ListView.GroupHeaderTemplate>
             </ListView>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

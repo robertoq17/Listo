@@ -5,7 +5,7 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="SALUD">
     <ContentPage.Content>
-        <ScrollView Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        <StackLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                         BindingContext="{Binding Salud}">
 
             <ListView  x:Name="GroupedView"
@@ -50,7 +50,7 @@
                     </DataTemplate>
                 </ListView.GroupHeaderTemplate>
             </ListView>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
 

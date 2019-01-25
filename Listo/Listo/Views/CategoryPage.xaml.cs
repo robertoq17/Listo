@@ -30,14 +30,14 @@ namespace Listo.Views
 
         private async void ListCategory_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //await Navigation.PushAsync(new MainPage());
+            // for instance new page -> await Navigation.PushAsync(new MainPage());
             if (e.SelectedItem != null)
             {
                 var item = e.SelectedItem as Category;
                 if (item.Name.ToLower() == "hogar")
                 {
                     DisplayAlert("HOGAR", "bienvenido a hogar", "ok");
-                    
+                    ViewModels.MainViewModel.GetInstance().Hogar = new ViewModels.HogarViewModel();
                     await Navigation.PushAsync(new HogarPage());
                 }
                 else if (item.Name.ToLower() == "salud")
@@ -49,6 +49,7 @@ namespace Listo.Views
                 else if (item.Name.ToLower() == "profesionales")
                 {
                     DisplayAlert("PROFESIONALES", "bienvenido a profesionales", "ok");
+                    ViewModels.MainViewModel.GetInstance().Profesional = new ViewModels.ProfesionalViewModel();
                     await Navigation.PushAsync(new ProfesionalPage());
                 }
 
