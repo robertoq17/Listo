@@ -8,12 +8,13 @@
         <StackLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                         BindingContext="{Binding Salud}">
 
-            <ListView  x:Name="GroupedView"
-    GroupDisplayBinding="{Binding Title}"
-    RowHeight="75"
-    GroupShortNameBinding="{Binding ShortName}"
-    IsGroupingEnabled="true"
-                       HasUnevenRows="True">
+            <ListView  
+                x:Name="GroupedView"
+                GroupDisplayBinding="{Binding Title}"
+                RowHeight="75"
+                GroupShortNameBinding="{Binding ShortName}"
+                IsGroupingEnabled="true"
+                HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

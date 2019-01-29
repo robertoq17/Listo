@@ -21,9 +21,9 @@ namespace Listo.ViewModels
         {
             instance = this;
             this.Categories = new CategoryViewModel();
-            this.Salud = new SaludViewModel();
-            this.Hogar = new HogarViewModel();
-            this.Profesional = new ProfesionalViewModel();
+            //this.Salud = new SaludViewModel();
+            //this.Hogar = new HogarViewModel();
+            //this.Profesional = new ProfesionalViewModel();
         }
         #endregion
 

@@ -30,7 +30,8 @@
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
                     SeparatorColor="Black"
-                    x:Name="ListCategory">
+                    x:Name="ListCategory"
+                    ItemsSource="{Binding MyList}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell 

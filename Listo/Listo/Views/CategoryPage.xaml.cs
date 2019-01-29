@@ -22,8 +22,6 @@ namespace Listo.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Lista listElements = new Lista();
-            ListCategory.ItemsSource = listElements.Elements;
             ListCategory.ItemSelected += ListCategory_ItemSelected;
 
         }
