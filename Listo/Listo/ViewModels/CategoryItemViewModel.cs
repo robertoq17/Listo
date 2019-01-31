@@ -23,7 +23,7 @@ namespace Listo.ViewModels
         private async void SelectCategory()
         {
             //MainViewModel.GetInstance().Categories = new CategoryViewModel(this);
-            //await Application.Current.MainPage.Navigation.PushAsync(new LandTabbedPage());
+            //await Application.Current.MainPage.Navigation.PushAsync(new SubCategoryPage());
         }
         #endregion
     }

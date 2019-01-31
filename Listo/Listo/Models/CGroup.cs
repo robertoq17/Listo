@@ -5,8 +5,11 @@ namespace Listo.Models
 {
     public class CGroup : ObservableCollection<Contact>, INotifyPropertyChanged
     {
+        #region Attributes
         public bool expanded;
+        #endregion
 
+        #region Properties
         public string Title { get; set; }
 
         public string TitleWithItemCount
@@ -37,18 +40,20 @@ namespace Listo.Models
 
         public int CCount { get; set; }
 
+        public static ObservableCollection<CGroup> All { private set; get; }
+
+        public static ObservableCollection<CGroup> AllH { private set; get; }
+
+        public static ObservableCollection<CGroup> AllP { private set; get; }
+        #endregion
+
+        #region Constructor
         public CGroup(string title, string shortName, bool expanded = true)
         {
             Title = title;
             ShortName = shortName;
             Expanded = expanded;
         }
-
-        public static ObservableCollection<CGroup> All { private set; get; }
-
-        public static ObservableCollection<CGroup> AllH { private set; get; }
-
-        public static ObservableCollection<CGroup> AllP { private set; get; }
 
         static CGroup()
         {
@@ -69,7 +74,6 @@ namespace Listo.Models
                 new CGroup("Urologos","U"){
                     new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703"},
                     new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-
                 } };
             All = Groups;
 
@@ -90,7 +94,6 @@ namespace Listo.Models
                 new CGroup("Jueces","J"){
                     new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="7"},
                     new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="8"},
-
                 } };
             AllP = Groupp;
             // Groups Hogar
@@ -110,16 +113,17 @@ namespace Listo.Models
                 new CGroup("Jardineros","J"){
                     new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703"},
                     new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-
                 } };
             AllH = Grouph;
         }
+        #endregion
 
-
+        #region Methods
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        } 
+        #endregion
     }
 }

@@ -49,7 +49,5 @@ namespace Listo.Views
             }
             GroupedView.ItemsSource = _expandedGroups;
         }
-
-
     }
 }

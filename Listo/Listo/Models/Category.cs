@@ -9,5 +9,7 @@ namespace Listo.Models
         public string Name { get; set; }
 
         public string Detail { get; set; }
+        
+        public CGroup SubCategory { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Listo.ViewModels"
              x:Class="Listo.Views.CategoryPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
     
@@ -26,12 +27,13 @@
                     FontAttributes="Bold"
                     TextColor="Black"></Label>
 
-                <ListView
+                <local:ListViewConTap
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
                     SeparatorColor="Black"
                     x:Name="ListCategory"
-                    ItemsSource="{Binding MyList}">
+                    ItemsSource="{Binding MyList,Mode=TwoWay}"
+                    ItemClickCommand="{Binding NextPageCommand}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell 
@@ -42,7 +44,7 @@
                             </TextCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </local:ListViewConTap>
 
                 <Button
                     x:Name="ButtonRequests"

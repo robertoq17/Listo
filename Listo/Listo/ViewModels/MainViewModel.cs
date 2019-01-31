@@ -9,11 +9,14 @@ namespace Listo.ViewModels
         #region ViewModel
         public CategoryViewModel Categories { get; set; }
 
+        public SubCategoryViewModel SubCategory { get; set; }
+
         public HogarViewModel Hogar { get; set; }
 
         public ProfesionalViewModel Profesional { get; set; }
 
         public SaludViewModel Salud { get; set; }
+
         #endregion
 
         #region Constructors
@@ -21,9 +24,6 @@ namespace Listo.ViewModels
         {
             instance = this;
             this.Categories = new CategoryViewModel();
-            //this.Salud = new SaludViewModel();
-            //this.Hogar = new HogarViewModel();
-            //this.Profesional = new ProfesionalViewModel();
         }
         #endregion
 
