@@ -12,11 +12,10 @@
             <ListView  
                 x:Name="GroupedView"
                 GroupDisplayBinding="{Binding Title}"
-                RowHeight="75"
                 GroupShortNameBinding="{Binding ShortName}"
                 IsGroupingEnabled="true"
                 HasUnevenRows="True"
-                ItemsSource="{Binding ItemSource, Mode=TwoWay}">
+                ItemsSource="{Binding ItemSource, Source={StaticResource sb}, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -42,12 +41,11 @@
                                        TextColor="Black"
                                        FontSize="15"
                                        VerticalOptions="Center"/>
-                                <Button Image="{Binding StateIcon}"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="Transparent"
-                                        BorderWidth="0"
-                                        Command="{Binding HeadTappedCommand}" 
-                                        CommandParameter="{Binding .}"/>
+                                <Image Source="{Binding StateIcon}"
+                                        BackgroundColor="Transparent"/>                                
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding HeadTappedCommand,Source={StaticResource sb}}" NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

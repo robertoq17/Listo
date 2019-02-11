@@ -1,4 +1,5 @@
 ﻿using Listo.Models;
+using Listo.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,31 +15,31 @@ namespace Listo.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HogarPage : ContentPage
 	{
-        private ObservableCollection<CGroup> _allGroups;
-        private ObservableCollection<CGroup> _expandedGroups;
+        private ObservableCollection<GroupViewModel> _allGroups;
+        private ObservableCollection<GroupViewModel> _expandedGroups;
 
         public HogarPage ()
 		{
 			InitializeComponent ();
-            _allGroups = CGroup.AllH;
+            _allGroups = GroupViewModel.AllH;
             UpdateListContent();
         }
 
         private void HeaderTapped(object sender, EventArgs args)
         {
             int selectedIndex = _expandedGroups.IndexOf(
-                ((CGroup)((Button)sender).CommandParameter));
+                ((GroupViewModel)((Button)sender).CommandParameter));
             _allGroups[selectedIndex].Expanded = !_allGroups[selectedIndex].Expanded;
             UpdateListContent();
         }
 
         private void UpdateListContent()
         {
-            _expandedGroups = new ObservableCollection<CGroup>();
-            foreach (CGroup group in _allGroups)
+            _expandedGroups = new ObservableCollection<GroupViewModel>();
+            foreach (GroupViewModel group in _allGroups)
             {
                 //Create new Groups so we do not alter original list
-                CGroup newGroup = new CGroup(group.Title, group.ShortName, group.Expanded);
+                GroupViewModel newGroup = new GroupViewModel(group.Title, group.ShortName, group.Expanded);
                 //Add the count of contact items for Lits Header Titles to use
                 newGroup.CCount = group.Count;
                 if (group.Expanded)

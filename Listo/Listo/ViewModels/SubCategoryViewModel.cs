@@ -15,18 +15,30 @@ namespace Listo.ViewModels
     public class SubCategoryViewModel : BaseViewModel
     {
         #region Attributes
-        ////private ObservableCollection<Contact> contact;
-        ////private ObservableCollection<Contact> contactSelected;
-        private ObservableCollection<CGroup> _allGroups;
-        private ObservableCollection<CGroup> _expandedGroups;
-        private ObservableCollection<CGroup> itemSource;
+
+        private ObservableCollection<GroupViewModel> _allGroups;
+        private ObservableCollection<GroupViewModel> _expandedGroups;
+        private ObservableCollection<GroupViewModel> itemSource;
         //private ApiService apiService;
+
         #endregion
 
         #region Properties
         public Category CategorySelected { get; set; }
 
-        public ObservableCollection<CGroup> ItemSource {
+        public ObservableCollection<GroupViewModel> AllGroups
+        {
+            get { return this._allGroups; }
+            set { this.SetValue(ref this._allGroups, value); }
+        }
+        public ObservableCollection<GroupViewModel> ExpandedGroups
+        {
+            get { return this._expandedGroups; }
+            set { this.SetValue(ref this._expandedGroups, value); }
+        }
+
+        public ObservableCollection<GroupViewModel> ItemSource
+        {
             get { return this.itemSource; }
             set { this.SetValue(ref this.itemSource, value); }
         }
@@ -37,33 +49,47 @@ namespace Listo.ViewModels
         public SubCategoryViewModel(Category itemSelect)
         {
             this.CategorySelected = itemSelect;
-            _allGroups = CGroup.All;
+
+            _allGroups = GroupViewModel.All;
+            this.AllGroups = _allGroups;
+            this.ExpandedGroups = _expandedGroups;
             UpdateListContent();
         }
 
         public SubCategoryViewModel()
         {
-
+            _allGroups = GroupViewModel.All;
+            this.AllGroups = _allGroups;
+            this.ExpandedGroups = _expandedGroups;
+            UpdateListContent();
         }
         #endregion
 
         #region Methods
 
-        private void HeaderTapped(object sender)
+        private void HeaderTapped(GroupViewModel item)
         {
-            int selectedIndex = _expandedGroups.IndexOf(
-                ((CGroup)((Button)sender).CommandParameter));
-            _allGroups[selectedIndex].Expanded = !_allGroups[selectedIndex].Expanded;
-            UpdateListContent();
+            try
+            {   //Search for the position
+                int selectedIndex = ExpandedGroups.IndexOf(item);
+                
+                
+                AllGroups[selectedIndex].Expanded = !AllGroups[selectedIndex].Expanded;
+                UpdateListContent();
+            }
+            catch(Exception e)
+            {
+                //Application.Current.MainPage.DisplayAlert("Error","Error:"+e,"OK");
+            }            
         }
 
         private void UpdateListContent()
         {
-            _expandedGroups = new ObservableCollection<CGroup>();
-            foreach (CGroup group in _allGroups)
+            ExpandedGroups = new ObservableCollection<GroupViewModel>();
+            foreach (GroupViewModel group in AllGroups)
             {
                 //Create new Groups so we do not alter original list
-                CGroup newGroup = new CGroup(group.Title, group.ShortName, group.Expanded);
+                GroupViewModel newGroup = new GroupViewModel(group.Title, group.ShortName, group.Expanded);
                 //Add the count of contact items for Lits Header Titles to use
                 newGroup.CCount = group.Count;
                 if (group.Expanded)
@@ -73,10 +99,9 @@ namespace Listo.ViewModels
                         newGroup.Add(contact);
                     }
                 }
-                _expandedGroups.Add(newGroup);
+                ExpandedGroups.Add(newGroup);
             }
-
-            ItemSource = _expandedGroups;
+            this.ItemSource = ExpandedGroups;
         }
 
 
@@ -129,7 +154,7 @@ namespace Listo.ViewModels
         {
             get
             {
-                return new RelayCommand<object>(HeaderTapped);
+                return new RelayCommand<GroupViewModel>(HeaderTapped);
             }
         }
         #endregion

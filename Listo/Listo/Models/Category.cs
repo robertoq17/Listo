@@ -10,6 +10,5 @@ namespace Listo.Models
 
         public string Detail { get; set; }
         
-        public CGroup SubCategory { get; set; }
     }
 }
