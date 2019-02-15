@@ -1,4 +1,5 @@
-﻿using Listo.Models;
+﻿using GalaSoft.MvvmLight.Command;
+using Listo.Models;
 using Listo.Services;
 using Listo.Views;
 using System;
@@ -13,7 +14,7 @@ namespace Listo.ViewModels
     public class CategoryViewModel : BaseViewModel
     {
         #region Attributes
-        private ApiService apiService;
+        //private ApiService apiService;
         private ObservableCollection<Category> myList;
         private Category itemSelect;
         //private List<Lista> listCategories;
@@ -132,6 +133,16 @@ namespace Listo.ViewModels
             await Application.Current.MainPage.Navigation.PushAsync(new SubCategoryPage());
         }
 
+        public async void NextPageMap()
+        {
+            //for instance new page ->await Navigation.PushAsync(new MainPage());
+            //MainViewModel.GetInstance().SubCategory = new SubCategoryViewModel();
+                      
+
+            MainViewModel.GetInstance().Ubicacion = new UbicationViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new UbicationsPage());
+        }
+
         #endregion
 
         #region Commands
@@ -144,6 +155,14 @@ namespace Listo.ViewModels
                 {
                     ItemSelect = item as Category;
                 });
+            }
+        }
+
+        public ICommand NextPageMapCommand
+        {
+            get
+            {
+                return new RelayCommand(NextPageMap);
             }
         }
 

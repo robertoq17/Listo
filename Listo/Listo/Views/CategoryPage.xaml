@@ -47,6 +47,17 @@
                 </local:ListViewConTap>
 
                 <Button
+                    x:Name="ButtonMap"
+                    Text="Ubicación"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="Black"
+                    FontSize="10"
+                    BackgroundColor="WhiteSmoke"
+                    Command="{Binding NextPageMapCommand}"
+                    Image="map.png">
+                </Button>
+
+                <Button
                     x:Name="ButtonRequests"
                     Text="Ver mis Solicitudes Pendientes"
                     HorizontalOptions="CenterAndExpand"
@@ -54,8 +65,7 @@
                     FontSize="10"
                     BackgroundColor="WhiteSmoke"
                     Clicked="ButtonRequests_Clicked"
-                    Image="contact_icon.png"
-                    HeightRequest="130">
+                    Image="contact_icon.png">
                 </Button>
 
             </StackLayout>

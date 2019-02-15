@@ -50,10 +50,29 @@ namespace Listo.ViewModels
         {
             this.CategorySelected = itemSelect;
 
-            _allGroups = GroupViewModel.All;
-            this.AllGroups = _allGroups;
-            this.ExpandedGroups = _expandedGroups;
-            UpdateListContent();
+            if (CategorySelected.Name.ToLower() == "salud")
+            {
+                _allGroups = GroupViewModel.All;
+                this.AllGroups = _allGroups;
+                this.ExpandedGroups = _expandedGroups;
+                UpdateListContent();
+            }
+            else if (CategorySelected.Name.ToLower() == "hogar")
+            {
+                _allGroups = GroupViewModel.AllH;
+                this.AllGroups = _allGroups;
+                this.ExpandedGroups = _expandedGroups;
+                UpdateListContent();
+            }
+            else if (CategorySelected.Name.ToLower() == "profesional")
+            {
+                _allGroups = GroupViewModel.AllP;
+                this.AllGroups = _allGroups;
+                this.ExpandedGroups = _expandedGroups;
+                UpdateListContent();
+            }
+
+
         }
 
         public SubCategoryViewModel()
@@ -72,15 +91,15 @@ namespace Listo.ViewModels
             try
             {   //Search for the position
                 int selectedIndex = ExpandedGroups.IndexOf(item);
-                
-                
+
+
                 AllGroups[selectedIndex].Expanded = !AllGroups[selectedIndex].Expanded;
                 UpdateListContent();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 //Application.Current.MainPage.DisplayAlert("Error","Error:"+e,"OK");
-            }            
+            }
         }
 
         private void UpdateListContent()

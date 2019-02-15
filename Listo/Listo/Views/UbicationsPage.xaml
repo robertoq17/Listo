@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="Listo.Views.UbicationsPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Map">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Ubicacion}">
+            <maps:Map 
+                WidthRequest="320" 
+                HeightRequest="200"
+                x:Name="MyMap"
+                IsShowingUser="true"
+                MapType="Street">
+            </maps:Map>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

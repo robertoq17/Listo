@@ -17,6 +17,8 @@ namespace Listo.ViewModels
 
         public SaludViewModel Salud { get; set; }
 
+        public UbicationViewModel Ubicacion { get; set; }
+
         #endregion
 
         #region Constructors
