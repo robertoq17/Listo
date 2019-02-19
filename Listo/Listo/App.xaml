@@ -10,6 +10,7 @@
         <bnd:SaludViewModel x:Key="Sld"></bnd:SaludViewModel>
         <bnd:ProfesionalViewModel x:Key="Prf"></bnd:ProfesionalViewModel>
         <bnd:HogarViewModel x:Key="Hgr"></bnd:HogarViewModel>
+        <bnd:RatingViewModel x:Key="rtng"></bnd:RatingViewModel>
         
 
     </Application.Resources>

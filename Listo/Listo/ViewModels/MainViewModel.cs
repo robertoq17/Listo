@@ -19,6 +19,8 @@ namespace Listo.ViewModels
 
         public UbicationViewModel Ubicacion { get; set; }
 
+        public RatingViewModel Rating { get; set; }
+
         #endregion
 
         #region Constructors

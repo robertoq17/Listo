@@ -71,8 +71,6 @@ namespace Listo.ViewModels
                 this.ExpandedGroups = _expandedGroups;
                 UpdateListContent();
             }
-
-
         }
 
         public SubCategoryViewModel()
@@ -149,6 +147,20 @@ namespace Listo.ViewModels
             }
         }
 
+        async void IrRating(string nameContact)
+        {
+            try
+            {
+                MainViewModel.GetInstance().Rating = new RatingViewModel(nameContact);
+                await Application.Current.MainPage.Navigation.PushAsync(new RatingPage());
+            }
+            catch (Exception e)
+            {
+
+                e.ToString();
+            }            
+        }
+
         #endregion
 
         #region Commands
@@ -174,6 +186,14 @@ namespace Listo.ViewModels
             get
             {
                 return new RelayCommand<GroupViewModel>(HeaderTapped);
+            }
+        }
+
+        public ICommand RatingCommand
+        {
+            get
+            {
+                return new RelayCommand<string>(IrRating);
             }
         }
         #endregion

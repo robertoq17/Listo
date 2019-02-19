@@ -24,6 +24,7 @@ namespace Listo.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
+            new SfRatingRenderer();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

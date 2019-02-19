@@ -23,11 +23,40 @@
                                 <Label Text="{Binding Name}" HorizontalTextAlignment="Center"></Label>
                                 <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="White">
                                     <Image Source="{Binding Icon}" VerticalOptions="CenterAndExpand"></Image>
-                                    <Label Text="{Binding Description}" HorizontalTextAlignment="Start" FontSize="Small" TextColor="Gray"></Label>
-                                    <Label x:Name="txtphonenumber" Text="{Binding Phonenumber}" HorizontalTextAlignment="Center" FontSize="Small" TextColor="Gray"></Label>
+                                    <Label Text="{Binding Description}" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           FontSize="Small" TextColor="Gray"></Label>
+                                    <Label x:Name="txtphonenumber" VerticalOptions="CenterAndExpand" Text="{Binding Phonenumber}" 
+                                           HorizontalTextAlignment="Center" HorizontalOptions="EndAndExpand" 
+                                           FontSize="Small" TextColor="Gray"></Label>
                                     <!--some button here-->
-                                    <Button x:Name="btnCall"  Command="{Binding  MakeACallCommand,Source={StaticResource sb}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="call.png"></Button>
-                                    <Button x:Name="btnWhatsapp"  Command="{Binding  SendAWhatsappCommand,Source={StaticResource sb}}" CommandParameter="{Binding Phonenumber}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Image="whatsapp.png"></Button>
+
+                                    <StackLayout
+                                        Orientation="Vertical"
+                                        BackgroundColor="Transparent">
+                                        <Button x:Name="btnCall"  Command="{Binding  MakeACallCommand,Source={StaticResource sb}}" 
+                                                CommandParameter="{Binding Phonenumber}"
+                                                BackgroundColor="Transparent" 
+                                                HorizontalOptions="FillAndExpand" 
+                                                VerticalOptions="FillAndExpand" 
+                                                Image="call.png"></Button>
+                                        <Button x:Name="btnWhatsapp"  
+                                                Command="{Binding  SendAWhatsappCommand,Source={StaticResource sb}}" 
+                                                CommandParameter="{Binding Phonenumber}" 
+                                                BackgroundColor="Transparent" 
+                                                HorizontalOptions="FillAndExpand" 
+                                                VerticalOptions="FillAndExpand" 
+                                                Image="whatsapp.png"></Button>
+                                        <Button x:Name="btnRating" 
+                                                Text="{Binding Rating,Mode=TwoWay}" 
+                                                Command="{Binding  RatingCommand,Source={StaticResource sb}}" 
+                                                CommandParameter="{Binding Name,Mode=TwoWay}" 
+                                                BackgroundColor="Transparent" 
+                                                HorizontalOptions="FillAndExpand" 
+                                                VerticalOptions="FillAndExpand" 
+                                                Image="starhalf.png"></Button>
+                                    </StackLayout>
+                                    
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -44,7 +73,9 @@
                                 <Image Source="{Binding StateIcon}"
                                         BackgroundColor="Transparent"/>                                
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding HeadTappedCommand,Source={StaticResource sb}}" NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                    <TapGestureRecognizer Command="{Binding HeadTappedCommand,Source={StaticResource sb}}" 
+                                                          NumberOfTapsRequired="1" 
+                                                          CommandParameter="{Binding .}"/>
                                 </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </ViewCell>

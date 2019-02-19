@@ -61,20 +61,20 @@ namespace Listo.ViewModels
             // Groups Salud
             ObservableCollection<GroupViewModel> Groups = new ObservableCollection<GroupViewModel>{
                 new GroupViewModel("Cardiologos","C"){
-                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="76021703" },
-                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png", Phonenumber="76021703" },
+                    new Contact { Name = "Romeo Santo", Description = "20 años de experiencia",  Icon="people.png", Phonenumber="76021703", Rating=4.7 },
+                    new Contact { Name = "Jose Luis P", Description = "15 años de experiencia", Icon="people.png", Phonenumber="76021703", Rating=4.8 },
                 },
                 new GroupViewModel("Ginecologos","G"){
-                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Martha Azurduy", Description = "5 años de experiencia", Icon="people.png", Phonenumber="76021703", Rating=4.6},
+                    new Contact { Name = "Felipa Dominguez", Description = "4 años de experiencia", Icon="people.png", Phonenumber="76021703", Rating=4.5},
                 },
                 new GroupViewModel("Pediatras","P"){
-                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Brian Matador", Description = "6 años de experiencia", Icon="people.png", Phonenumber="76021703", Rating=4},
+                    new Contact { Name = "Kevin Peligroso", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703" ,Rating=4.2},
                 },
                 new GroupViewModel("Urologos","U"){
-                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703"},
-                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703"},
+                    new Contact { Name = "Milko Reyes", Description = "30 años de experiencia", Icon="people.png", Phonenumber="76021703", Rating=4.6},
+                    new Contact { Name = "Max Aluiarte", Description = "2 años de experiencia", Icon="people.png", Phonenumber="76021703", Rating=4.6},
                 } };
             All = Groups;
 

@@ -6,6 +6,8 @@ namespace Listo.Models
 {
     public class Contact
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -13,5 +15,7 @@ namespace Listo.Models
         public string Icon { get; set; }
 
         public string Phonenumber { get; set; }
+
+        public double Rating { get; set; }
     }
 }
