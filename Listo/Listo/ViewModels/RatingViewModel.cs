@@ -13,6 +13,7 @@ namespace Listo.ViewModels
         #region Attributes
         double rating;
         string nameContact;
+        string comentaryWork;
         #endregion
         #region Properties
         public int IdContact { get; set; }
@@ -28,6 +29,12 @@ namespace Listo.ViewModels
             get { return this.nameContact; }
             set { this.SetValue(ref this.nameContact, value); }
         }
+
+        public string ComentaryWork
+        {
+            get { return this.comentaryWork; }
+            set { this.SetValue(ref this.comentaryWork, value); }
+        }
         #endregion
 
         #region Constructor
@@ -38,6 +45,7 @@ namespace Listo.ViewModels
 
         public RatingViewModel(string name)
         {
+            ComentaryWork = comentaryWork;
             NameContact = name;
             this.Rating = 0;
         }
@@ -48,7 +56,9 @@ namespace Listo.ViewModels
         {
             try
             {
-                await App.Current.MainPage.DisplayAlert("Test Value Rating", "Contacto: "+ NameContact +" || "+ "Puntaje: "+Rating.ToString(), "ok");
+                await App.Current.MainPage.DisplayAlert("Test Value Rating",
+                    "Contacto: "+ NameContact +" || "+ "Puntaje: "+Rating.ToString()+"\n" + "\n" + "Comentario:"+"\n" + "\n" + ComentaryWork,
+                    "ok");
                 //MainViewModel.GetInstance().Categories = new CategoryViewModel();
                 //await App.Current.MainPage.Navigation.PushAsync(new CategoryPage());                
             }

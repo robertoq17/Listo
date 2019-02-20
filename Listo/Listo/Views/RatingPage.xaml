@@ -10,6 +10,14 @@
         <Label Text="Puntúa....que te pareció!"/>
             <rating:SfRating x:Name="rating" ItemCount="5" Value="{Binding Rating,Mode=TwoWay}" Precision="Standard"/>
 
+            <Label
+                Text="Comentario: "
+                FontSize="Medium"></Label>
+
+            <Editor Text="{Binding ComentaryWork,Mode=TwoWay}"
+                    Placeholder="Ingrese su Comentario..."
+                    AutoSize="TextChanges"></Editor>
+
             <Button Command="{Binding BackRatingCommand}"
                     Text="Calificar"></Button>
         </StackLayout>

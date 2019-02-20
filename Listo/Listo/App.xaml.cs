@@ -10,6 +10,9 @@ namespace Listo
     {
         public App()
         {
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NzA3NjFAMzEzNjJlMzQyZTMwb2JNVzZOQnBKdEIyRkorbmtxRVcwQWlKdnRHZXlzUDZONmtZY1o2WkVsMD0=");
+
             InitializeComponent();
 
             MainPage = new NavigationPage(new CategoryPage());
