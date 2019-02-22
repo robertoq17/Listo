@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Push;
+using Syncfusion.SfRating.XForms.UWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -52,7 +55,15 @@ namespace Listo.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                // you'll need to add `using System.Reflection;`
+                List<Assembly> assembliesToInclude = new List<Assembly>();
+
+                //Now, add all the assemblies your app uses
+                assembliesToInclude.Add(typeof(SfRatingRenderer).GetTypeInfo().Assembly);
+
+                // replaces Xamarin.Forms.Forms.Init(e);        
+                Xamarin.Forms.Forms.Init(e, assembliesToInclude);
+
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -72,7 +83,12 @@ namespace Listo.UWP
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            // Best place to call this method
+            Push.CheckLaunchedFromNotification(e);
         }
+
+
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails

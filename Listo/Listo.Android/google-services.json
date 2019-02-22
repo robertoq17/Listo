@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "677406532619",
+    "firebase_url": "https://pushonlisto.firebaseio.com",
+    "project_id": "pushonlisto",
+    "storage_bucket": "pushonlisto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677406532619:android:ff92c6338e3bd090",
+        "android_client_info": {
+          "package_name": "com.companyname.Listo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677406532619-blri4jbkt8u1rse449al6glb6den5fdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7r6spS5dtNhjI7JCNQ5Sed18upOCply0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
