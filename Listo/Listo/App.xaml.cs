@@ -33,8 +33,6 @@ namespace Listo
             // Avoid duplicate event registration:
             ReceivedMessageWithAppCenter();
 
-
-
             // AppCenter.start after
             // Handle when your app starts
             AppCenter.Start("android=ba6eb727-fecd-4e0b-8935-623b67d57036;" +
@@ -66,7 +64,7 @@ namespace Listo
                         {
                             summary += $"\t\t{key} : {e.CustomData[key]}\n";
 
-                            //Here su caught the value
+                            //Here caught the value
                             if (string.IsNullOrEmpty(pushValue))
                             {
                                 pushValue = key;
